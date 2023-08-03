@@ -26,7 +26,7 @@ const questions = [
         message: 'What type of license does this application use?',
         name: 'license',
         default: 'MIT',
-        choices: ['MIT'],
+        choices: ['MIT', '', '', '', ''],
     },
     {
         type: 'input',
@@ -57,7 +57,7 @@ const questions = [
 
 // TODO: Create a function to write README file
 function writeToFile(data) {
-    fs.writeFile(`README.md`, data, (error) => {
+    fs.writeFile(`./Example/README.md`, data, (error) => {
         if(error) {
             console.error(error)
         }
@@ -70,6 +70,7 @@ function init() {
         .prompt(questions)
         .then((response) => {
             const markdwn = generateMarkdown(response)
+            writeToFile(markdwn)
         })
 }
 

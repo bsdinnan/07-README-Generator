@@ -15,6 +15,8 @@ function generateMarkdown(data) {
   return `# ${data.title}
   ## Description
   ${data.description}
+  ## Badges
+  ${renderLicenseBadge(data.license)}
   ## Table of Contents (Optional)
   - [Installation](#installation)
   - [Usage](#usage)
@@ -24,12 +26,9 @@ function generateMarkdown(data) {
   ${data.installation}
   ## Usage
   ${data.usage}
-  ## Credits
-
   ## License
-
-  ## Badges
-
+  ${renderLicenseLink(data.license)}
+  ${renderLicenseSection(data.license)}
   ## How to Contribute
   ${data.contribution}
   ## Tests
